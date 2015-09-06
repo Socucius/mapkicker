@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   get 'static_pages/index'
   root 'static_pages#index'
 
-  resources :user_sessions
-  resources :users, only: [:create]
+  resources :user_sessions, only: [:new, :create, :destroy]
+  resources :users, only: [:new, :create]
 
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
