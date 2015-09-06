@@ -1,7 +1,7 @@
 class PlacesController < ApplicationController
 
   def create
-    place = Place.new(strong_places_params)
+    place = current_user.places.build(place_params)
     place.save
     redirect_to root_path
   end
@@ -16,7 +16,7 @@ class PlacesController < ApplicationController
 
 private
 
-  def strong_places_params
+  def place_params
     params.require(:place).permit(:title, :coordinates)
   end
 
