@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mymap</title>
+  <%= include_gon %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&onload=init"type="text/javascript"></script>
+</head>
+<body>
+
+
+<div class = "container">
+
+<%= yield %>
+
+</div>
+
+</body>
+</html>
