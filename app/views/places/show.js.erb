@@ -1,2 +1,3 @@
 $('.place-modal').html('<%= @place.title %>');
+$('#place-content').html('<%= escape_javascript( render partial: "place", locals: {place: @place} )%>')
 $('#place-modal').modal();

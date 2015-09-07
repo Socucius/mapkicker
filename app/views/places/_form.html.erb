@@ -1,0 +1,9 @@
+<div class = "form-group">
+  <%= form_for place do |f| %>
+    Title:
+    <%= f.text_field :title, class: "form-control" %>
+    Coordinates:
+    <%= f.text_field :coordinates, class: "form-control coordinates" %>
+    <%= f.submit "Добавить", class: "btn btn-material-deep-purple" %>
+  <% end %>
+</div>
