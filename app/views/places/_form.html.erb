@@ -4,7 +4,7 @@
     <%= f.text_field :title, class: "form-control" %>
     Coordinates:
     <%= f.text_field :coordinates, class: "form-control coordinates" %>
-    <%= f.bootsy_area :content %>
+    <%= f.text_area :content, :class => "redactor", :rows => 40, :cols => 120  %>
     <%= f.submit "Добавить", class: "btn btn-material-deep-purple" %>
   <% end %>
 </div>

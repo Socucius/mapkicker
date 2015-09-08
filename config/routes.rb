@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  mount Bootsy::Engine => '/bootsy', as: 'bootsy'
+  mount RedactorRails::Engine => '/redactor_rails'
   get 'static_pages/index'
   root 'static_pages#index'
 

@@ -12,10 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootsy
 //= require bootstrap/dist/js/bootstrap
 //= require bootstrap-material-design/dist/js/material
 //= require bootstrap-material-design/dist/js/ripples
+//= require redactor-rails
 //= require_tree .
 
 
