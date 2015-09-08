@@ -6,9 +6,9 @@ class UserSessionsController < ApplicationController
 
   def create
     if @user = login(params[:email], params[:password])
-      redirect_to root_path
+      render :new
     else
-      redirect_to root_path
+      redirect_to @user
     end
   end
 

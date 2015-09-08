@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
 
+  mount Bootsy::Engine => '/bootsy', as: 'bootsy'
   get 'static_pages/index'
   root 'static_pages#index'
 
   resources :user_sessions, only: [:new, :create, :destroy]
-  resources :users, only: [:new, :create] do 
+
+  resources :users, only: [:show, :new, :create] do 
     resources :notifications
   end
 

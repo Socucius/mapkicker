@@ -3,7 +3,7 @@ class PlacesController < ApplicationController
   def create
     place = current_user.places.build(place_params)
     place.save
-    redirect_to root_path
+    redirect_to current_user
   end
 
   def destroy
@@ -41,7 +41,7 @@ class PlacesController < ApplicationController
 private
 
   def place_params
-    params.require(:place).permit(:title, :coordinates)
+    params.require(:place).permit(:title, :coordinates, :content, :bootsy_image_gallery_id)
   end
 
 end
