@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @place = Place.new
-    gon.places = current_user.places.as_json(only: [:id,:title, :coordinates])
+    gon.places = @user.places.as_json(only: [:id,:title, :coordinates])
   end
 
   def new

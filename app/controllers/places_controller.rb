@@ -10,7 +10,7 @@ class PlacesController < ApplicationController
     place = Place.find(params[:id])
     place.destroy
     respond_to do |format| 
-      format.html { redirect_to root_path }
+      format.html { redirect_to place.user }
     end
   end
 
@@ -25,7 +25,7 @@ class PlacesController < ApplicationController
   def update
     @place = Place.find(params[:id])
     @place.update_attributes(place_params)
-    redirect_to root_path
+    redirect_to @place.user
   end
 
 
