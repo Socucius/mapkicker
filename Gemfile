@@ -29,6 +29,7 @@ gem 'sorcery'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'redactor-rails'
+gem 'pundit'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
