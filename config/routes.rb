@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     resources :notifications
   end
 
+  resources :relationships, only: [:create, :destroy]
+
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
 

@@ -6,9 +6,13 @@
         <p class = "navbar-text">Это вы</p>
       <% end %>
       <p class = "navbar-text"> <%= @user.places.count %> мест на карте </p>
+      <p class = "navbar-text"> <%= @user.get_followers.count %> подписчиков </p>
+      <p class = "navbar-text"> <%= @user.get_subscriptions.count %> подписок </p>
     </div>
   </div>
 </nav>
+
+<%= render partial: "relationships/form" %>
 
 <!-- Form modal -->
 <div class="modal fade" id="form-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

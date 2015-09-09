@@ -29,4 +29,8 @@ class User < ActiveRecord::Base
     subscriptions
   end
 
+  def is_followed_by?(user)
+    Relationship.find_by(follower_id: user.id, followed_id: self.id)
+  end
+
 end
