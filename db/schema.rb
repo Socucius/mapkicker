@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150909001832) do
+ActiveRecord::Schema.define(version: 20150909085718) do
 
   create_table "places", force: :cascade do |t|
     t.string   "title"
@@ -39,6 +39,15 @@ ActiveRecord::Schema.define(version: 20150909001832) do
 
   add_index "redactor_assets", ["assetable_type", "assetable_id"], name: "idx_redactor_assetable"
   add_index "redactor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_redactor_assetable_type"
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer  "follower_id"
+    t.integer  "followed_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
 
   create_table "users", force: :cascade do |t|
     t.string   "email",            null: false
