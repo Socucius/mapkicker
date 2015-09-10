@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
 
 
   has_many :places, dependent: :destroy
+  has_many :notifications, dependent: :destroy
+
   has_many :relationships, foreign_key: :follower_id
   has_many :followers, class_name: "Relationship", foreign_key: :followed_id
 
