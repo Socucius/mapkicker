@@ -13,14 +13,13 @@ class PlacesController < ApplicationController
     authorize(place)
     place.destroy
     respond_to do |format| 
-      format.html { redirect_to place.user }
+      format.html { redirect_to current_user }
     end
   end
 
   def edit
     @place = Place.find(params[:id])
     respond_to do |format|
-      format.html { redirect_to root_path }
       format.js
     end
   end
@@ -29,7 +28,7 @@ class PlacesController < ApplicationController
     @place = Place.find(params[:id])
     authorize(@place)
     @place.update_attributes(place_params)
-    redirect_to @place.user
+    redirect_to current_user
   end
 
 
@@ -37,7 +36,6 @@ class PlacesController < ApplicationController
   def show
     @place = Place.find(params[:id])
     respond_to do |format|
-      format.html { redirect_to root_path }
       format.js
     end
   end

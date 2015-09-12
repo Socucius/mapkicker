@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @place = Place.new
-    gon.places = @user.places.as_json(only: [:id,:title, :coordinates])
+    init_js_variables
   end
 
   def new
@@ -21,6 +21,12 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def init_js_variables
+    gon.places = @user.places.as_json(only: [:id,:title, :coordinates])
+    users_hash = { user: @user.id, current_user: current_user ? current_user.id : -1 }
+    gon.users = users_hash.to_json
+  end 
 
   def user_params
     params.require(:user).permit(:email, :nickname, :password, :password_confirmation)

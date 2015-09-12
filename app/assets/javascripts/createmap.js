@@ -1,15 +1,13 @@
-var map_name, placemark, c_1, c_2, current_pos, result;
+var map_name, placemark, c_1, c_2, current_pos, result, users;
 result = gon.places;
-
-
+users = JSON.parse(gon.users);
 //Отрисовка карты
-map_name = "test_map";
+map_name = "map";
   function init (ymaps) { 
       var map = new ymaps.Map(map_name, {
       center: [55.75, 37.67],
       zoom: 9
     });
-
 
 
 //Заполнение карты точками
@@ -27,11 +25,14 @@ map_name = "test_map";
 
 
 //Открытие модального окна с добавлением точки
+
+if ( users["user"] == $("#map").attr("data-user") ) {
   map.events.add('click', function (e) {
       current_pos = e.get('coords');
       $(".coordinates").val(current_pos.join().split('.').join(','));
       $('#form-modal').modal();
   });
+}
 
 //Открытие модального окна с содержимым
   map.geoObjects.events.add('click', function(e) {

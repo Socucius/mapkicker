@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_many :places, dependent: :destroy
   has_many :notifications, dependent: :destroy
 
-  has_many :relationships, foreign_key: :follower_id
+  has_many :subscriptions, class_name: "Relationship", foreign_key: :follower_id
   has_many :followers, class_name: "Relationship", foreign_key: :followed_id
 
   validates :password, length: { minimum: 3 }
@@ -18,17 +18,17 @@ class User < ActiveRecord::Base
   def get_followers
     followers = []
     self.followers.each do |f|
-      followers << User.find(f.follower_id)
+      followers << f.follower_id
     end
-    followers
+    User.find(followers)
   end
 
   def get_subscriptions
     subscriptions = []
-    self.relationships.each do |s|
-      subscriptions << User.find(s.followed_id)
+    self.subscriptions.each do |s|
+      subscriptions << s.followed_id
     end
-    subscriptions
+    User.find(subscriptions)
   end
 
   def is_followed_by?(user)
