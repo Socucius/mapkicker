@@ -11,7 +11,10 @@ Rails.application.routes.draw do
     resources :notifications, only: [:create, :destroy, :index]
   end
 
-  resources :relationships, only: [:create, :destroy]
+  resources :relationships, only: [:create, :destroy] do
+    get 'followers' => 'relationships#followers'
+    get 'subsciptions' => 'relationships#subsciptions'
+  end
 
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout

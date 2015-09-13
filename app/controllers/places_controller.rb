@@ -12,9 +12,7 @@ class PlacesController < ApplicationController
     place = Place.find(params[:id])
     authorize(place)
     place.destroy
-    respond_to do |format| 
-      format.html { redirect_to current_user }
-    end
+    redirect_to current_user
   end
 
   def edit
