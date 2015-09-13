@@ -49,4 +49,3 @@ if ( users["user"] == $("#map").attr("data-user") ) {
 
 }
 
-

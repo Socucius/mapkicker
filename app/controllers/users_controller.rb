@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :redirect_if_authenticated, except: [:show]
 
   def show
     @user = User.find(params[:id])

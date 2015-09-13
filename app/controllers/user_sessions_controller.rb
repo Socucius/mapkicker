@@ -1,4 +1,5 @@
 class UserSessionsController < ApplicationController
+  before_action :redirect_if_authenticated
 
   def new
     @user = User.new
@@ -6,9 +7,9 @@ class UserSessionsController < ApplicationController
 
   def create
     if @user = login(params[:email], params[:password])
-      render :new
-    else
       redirect_to @user
+    else
+      render :new
     end
   end
 

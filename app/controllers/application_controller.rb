@@ -3,5 +3,12 @@ class ApplicationController < ActionController::Base
   include Pundit
 
 
+
+  private
+
+  def redirect_if_authenticated
+    redirect_to current_user if current_user
+  end
+
   
 end

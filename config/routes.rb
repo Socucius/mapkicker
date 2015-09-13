@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
 
   mount RedactorRails::Engine => '/redactor_rails'
+
   get 'static_pages/index'
   root 'static_pages#index'
 
   resources :user_sessions, only: [:new, :create, :destroy]
 
   resources :users, only: [:show, :new, :create] do 
-    resources :notifications, only: [:create, :destroy, :show]
+    resources :notifications, only: [:create, :destroy, :index]
   end
 
   resources :relationships, only: [:create, :destroy]
