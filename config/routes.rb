@@ -9,12 +9,11 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :new, :create] do 
     resources :notifications, only: [:create, :destroy, :index]
+    get 'subscriptions', as: :subscriptions
+    get 'followers', as: :followers
   end
 
-  resources :relationships, only: [:create, :destroy] do
-    get 'followers' => 'relationships#followers'
-    get 'subsciptions' => 'relationships#subsciptions'
-  end
+  resources :relationships, only: [:create, :destroy]
 
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout

@@ -1,21 +1,27 @@
-<div class = "row">
-  <p class = "navbar-text"> <%= @user.nickname %> </p>
-  <% if is_owner?(@user) %>
-    <p class = "navbar-text">Это вы</p>
-  <% end %>
-  <p class = "navbar-text"> <%= @user.places.count %> мест на карте </p>
-  <p class = "navbar-text"> <%= @user.get_followers.count %> подписчиков </p>
-  <p class = "navbar-text"> <%= @user.get_subscriptions.count %> подписок </p>
+<div id = "user-panel">
 
-  <p class = "navbar-text notifications-link">
-  <%= link_to current_user.notifications.count.to_s + " оповещений", user_notifications_path(current_user), data: {toggle: "modal", target: ".modal-info"}, remote: true %> </p>
+  <div class = "row">
+    <p class = "navbar-text"> <%= @user.nickname %> </p>
+    <% if is_owner?(@user) %>
+      <p class = "navbar-text">Это вы</p>
+    <% end %>
+    <p class = "navbar-text"> <%= @user.places.count %> мест на карте </p>
+    <p class = "navbar-text"> <%= link_to @user.get_followers.count.to_s + " подписчиков", user_followers_path(@user), remote: true, data: {toggle: "modal", target: ".modal-info"}, remote: true %> </p>
+    <p class = "navbar-text"> <%= link_to @user.get_subscriptions.count.to_s + " подписок", user_subscriptions_path(@user), remote: true, data: {toggle: "modal", target: ".modal-info"}, remote: true %> </p>
 
-  <!-- User info Modal -->
-  <div class="modal fade bs-example-modal-sm modal-info" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-    <div class="modal-dialog modal-sm">
-      <div class="modal-content" id = "info">
+    <p class = "navbar-text notifications-link">
+    <%= link_to current_user.notifications.count.to_s + " оповещений", user_notifications_path(current_user), data: {toggle: "modal", target: ".modal-info"}, remote: true %> </p>
+
+    <%= render partial: "relationships/form" %>
+
+    <!-- User info Modal -->
+    <div class="modal fade bs-example-modal-sm modal-info" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content" id = "info">
+        </div>
       </div>
     </div>
+
   </div>
 
 </div>

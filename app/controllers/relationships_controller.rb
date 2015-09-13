@@ -12,16 +12,6 @@ class RelationshipsController < ApplicationController
     
   end
 
-  def subscribers
-    @followers = current_user.get_followers
-    respond_to :js
-  end
-
-  def subscriptions
-    @subscriptions = current_user.get_subscriptions
-    respond_to :js
-  end
-
   private
 
   def relationship_params

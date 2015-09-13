@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
-  before_action :redirect_if_authenticated, except: [:show]
+  before_action :redirect_if_authenticated, except: [:show, :followers, :subscriptions]
+  before_action :initialize_user, only: [:show, :followers, :subscriptions]
 
   def show
-    @user = User.find(params[:id])
     @place = Place.new
     init_js_variables
   end
@@ -21,7 +21,21 @@ class UsersController < ApplicationController
     end
   end
 
+  def followers
+    @followers = @user.get_followers
+    respond_to :js
+  end
+
+  def subscriptions
+    @subscriptions = @user.get_subscriptions
+    respond_to :js
+  end
+
   private
+
+  def initialize_user
+    params[:id] ? @user = User.find(params[:id]) : @user = User.find(params[:user_id])
+  end
 
   def init_js_variables
     gon.places = @user.places.as_json(only: [:id,:title, :coordinates])
