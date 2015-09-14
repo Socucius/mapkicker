@@ -1,3 +1,7 @@
-<% subscriptions.each do |s| %>
-  <%= s.nickname %>
+<% unless subscriptions.empty? %>
+  <% subscriptions.each do |s| %>
+    <%= s.nickname %>
+  <% end %>
+<% else %>
+  No subscriptions
 <% end %>

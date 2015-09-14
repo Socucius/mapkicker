@@ -1,6 +1,12 @@
-<% unless @user.is_followed_by?(current_user) %>
-  <%= form_for Relationship.new do |f| %>
-    <%= f.hidden_field :followed_id, value: @user.id %>
-    <%= f.submit "Follow", class: "btn btn-default" %>
-  <% end %>
+<% unless current_user %>
+
+  <div id = "follow-button">
+    <% unless @user.is_followed_by?(current_user) %>
+      <%= form_for Relationship.new do |f| %>
+        <%= f.hidden_field :followed_id, value: @user.id %>
+        <%= f.submit "Follow", class: "btn btn-material-green" %>
+      <% end %>
+    <% end %>
+  </div>
+
 <% end %>

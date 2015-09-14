@@ -1,3 +1,7 @@
-<% followers.each do |f| %>
-  <%= f.nickname %>
+<% unless followers.epmty? %>
+  <% followers.each do |f| %>
+    <%= f.nickname %>
+  <% end %>
+<% else %>
+  No followers
 <% end %>

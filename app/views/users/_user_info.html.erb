@@ -1,18 +1,22 @@
 <div id = "user-panel">
 
   <div class = "row">
-    <p class = "navbar-text"> <%= @user.nickname %> </p>
+    <p class = "navbar-text" id = "user-label" > <%= @user.nickname.upcase %> </p>
     <% if is_owner?(@user) %>
-      <p class = "navbar-text">Это вы</p>
+      <p class = "navbar-text">(Это вы)</p>
     <% end %>
-    <p class = "navbar-text"> <%= @user.places.count %> мест на карте </p>
-    <p class = "navbar-text"> <%= link_to @user.get_followers.count.to_s + " подписчиков", user_followers_path(@user), remote: true, data: {toggle: "modal", target: ".modal-info"}, remote: true %> </p>
-    <p class = "navbar-text"> <%= link_to @user.get_subscriptions.count.to_s + " подписок", user_subscriptions_path(@user), remote: true, data: {toggle: "modal", target: ".modal-info"}, remote: true %> </p>
-
-    <p class = "navbar-text notifications-link">
-    <%= link_to current_user.notifications.count.to_s + " оповещений", user_notifications_path(current_user), data: {toggle: "modal", target: ".modal-info"}, remote: true %> </p>
 
     <%= render partial: "relationships/form" %>
+
+    <p class = "navbar-text"> <%= @user.places.count %> мест на карте </p>
+    <p class = "navbar-text" data-load="info"> <%= link_to @user.get_followers.count.to_s + " подписчиков", user_followers_path(@user), remote: true, data: {toggle: "modal", target: ".modal-info"}, remote: true %> </p>
+    <p class = "navbar-text" data-load="info"> <%= link_to @user.get_subscriptions.count.to_s + " подписок", user_subscriptions_path(@user), remote: true, data: {toggle: "modal", target: ".modal-info"}, remote: true %> </p>
+
+  <% if @user == current_user %>
+    <p class = "navbar-text notifications-link" data-load="info">
+       <%= link_to current_user.notifications.count.to_s + " оповещений", user_notifications_path(current_user), data: {toggle: "modal", target: ".modal-info"}, remote: true %> 
+    </p>
+  <% end %>
 
     <!-- User info Modal -->
     <div class="modal fade bs-example-modal-sm modal-info" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
