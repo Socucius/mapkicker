@@ -1,5 +1,5 @@
-<% unless notifications.empty? %>
-  <% notifications.each do |n| %>
+<% unless @notifications.empty? %>
+  <% @notifications.each do |n| %>
     <%= n.message %>
   <% end %>
 <% else %>

@@ -1,5 +1,5 @@
-<% unless followers.epmty? %>
-  <% followers.each do |f| %>
+<% unless @followers.empty? %>
+  <% @followers.each do |f| %>
     <%= f.nickname %>
   <% end %>
 <% else %>

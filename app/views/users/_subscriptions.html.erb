@@ -1,5 +1,5 @@
-<% unless subscriptions.empty? %>
-  <% subscriptions.each do |s| %>
+<% unless @subscriptions.empty? %>
+  <% @subscriptions.each do |s| %>
     <%= s.nickname %>
   <% end %>
 <% else %>

@@ -3,8 +3,24 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #user-panel {
-  a {
-    color: white;
+/* unvisited link */
+  a:link {
+      color: black;
+  }
+
+  /* visited link */
+  a:visited {
+      color: black;
+  }
+
+  /* mouse over link */
+  a:hover {
+      color: black;
+  }
+
+  /* selected link */
+  a:active {
+      color: black;
   }
 }
 

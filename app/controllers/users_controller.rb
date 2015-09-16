@@ -23,12 +23,16 @@ class UsersController < ApplicationController
 
   def followers
     @followers = @user.get_followers
-    respond_to :js
+    respond_to do |format|
+      format.js { render partial: 'followers', layout: false }
+    end
   end
 
   def subscriptions
     @subscriptions = @user.get_subscriptions
-    respond_to :js
+    respond_to do |format|
+      format.js { render partial: 'subscriptions', layout: false }
+    end
   end
 
   private
