@@ -15,7 +15,6 @@
 //= require bootstrap/dist/js/bootstrap
 //= require bootstrap-material-design/dist/js/material
 //= require bootstrap-material-design/dist/js/ripples
-//= require fullpage/jquery.fullPage.min
 //= require redactor-rails
 //= require_tree .
 

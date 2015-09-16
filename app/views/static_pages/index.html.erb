@@ -3,19 +3,14 @@
 
 <div id="fullpage">
     <div class="section">
-      <h1>Register</h1>
+      <div id = "main-label">
+        <h1> <span class = "label label-default">Register</span> </h1>
+          <%= link_to "Login", login_path, class: "btn btn-default pull-left btn-material-teal" %>
+          <%= link_to "Create account", new_user_path, class: "btn btn-default pull-left btn-material-orange" %>
+        <h1> <span class = "label label-default label-explore">Explore</span> </h1>
+        <h1> <span class = "label label-default label-material-blue ">Enjoy</span> </h1>
 
-        <%= link_to "Login", login_path, class: "btn btn-default pull-right" %>
-        <%= link_to "Create account", new_user_path, class: "btn btn-default pull-right" %>
-
-    </div>
-    <div class="section">
-      <h1>Explore</h1>
-    </div>
-    <div class="section">
-      <h1>Capture</h1>
-    </div>
-    <div class="section">
-      <h1>Enjoy</h1>
-    </div>
+      </div>
+          <%= image_tag 'map.png', class: "map-label" %>
+    
 </div>

@@ -1,4 +1,4 @@
-<h3> <%= place.title %> </h3>
+<h3> <%= @place.title %> </h3>
 <%= @place.content.html_safe %>
-<%= link_to "Destroy", place_path(place), method: :delete, class: "btn btn-default" %>
-<%= link_to "Edit", edit_place_path(place), remote: true, class: "btn btn-default" %>
+<%= link_to "Destroy", place_path(@place), method: :delete, class: "btn btn-default" %>
+<button type="button" class="btn btn-default" data-action="place_edit" data-url="<%=edit_place_path(@place)%>">Edit</button>

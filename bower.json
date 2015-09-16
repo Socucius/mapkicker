@@ -15,7 +15,6 @@
   ],
   "dependencies": {
     "bootstrap": null,
-    "bootstrap-material-design": null,
-    "fullpage": null
+    "bootstrap-material-design": null
   }
 }

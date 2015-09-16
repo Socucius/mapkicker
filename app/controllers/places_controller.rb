@@ -18,7 +18,7 @@ class PlacesController < ApplicationController
   def edit
     @place = Place.find(params[:id])
     respond_to do |format|
-      format.js
+      format.js { render partial: "edit_form", layout: false }
     end
   end
 
@@ -34,7 +34,7 @@ class PlacesController < ApplicationController
   def show
     @place = Place.find(params[:id])
     respond_to do |format|
-      format.js
+      format.js { render partial: "place", layout: false }
     end
   end
 

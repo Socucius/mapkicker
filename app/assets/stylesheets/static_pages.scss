@@ -1,3 +1,24 @@
 // Place all the styles related to the static_pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#main-label {
+  float: left;
+}
+
+#fullpage {
+  margin-top: 25%;
+}
+
+.map-label {
+  display: block;
+  margin-bottom: 25px;
+  margin-left: 400px;
+}
+
+
+.label-explore {
+  color: white;
+  background-color: #C2E24E;
+}
