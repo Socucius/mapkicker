@@ -1,6 +1,6 @@
 <% unless @notifications.empty? %>
   <% @notifications.each do |n| %>
-    <%= n.message %>
+    <%= n.message %> [new]
   <% end %>
 <% else %>
   No notifications

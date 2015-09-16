@@ -2,8 +2,8 @@
   <%= form_for place do |f| %>
     Title:
     <%= f.text_field :title, class: "form-control" %>
-    Coordinates:
-    <%= f.text_field :coordinates, class: "form-control coordinates" %>
+    <%= f.hidden_field :coordinates, class: "form-control coordinates" %>
+    Content: 
     <%= f.text_area :content, :class => "redactor", :rows => 40, :cols => 120  %>
     <%= f.submit "Добавить", class: "btn btn-material-deep-purple" %>
   <% end %>
