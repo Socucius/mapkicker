@@ -1,10 +1,7 @@
 <div id = "user-panel" data-owner="<%= @user.id %>">
 
   <div class = "row">
-    <p class = "navbar-text navbar-text btn btn-material-lime " id = "user-label" > <%= link_to @user.nickname.upcase, user_path(@user) %> </p>
-    <% if is_owner?(@user) %>
-      <p class = "navbar-text">(Это вы)</p>
-    <% end %>
+    <p class = "navbar-text navbar-text btn btn-material-lime " id = "user-label" > <%= link_to @user.nickname.upcase, user_path(@user) %> <% if is_owner?(@user) %> (это вы) <% end %></p>
 
     <%= render partial: "relationships/form" %>
 
