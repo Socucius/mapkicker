@@ -1,16 +1,16 @@
 <div id = "user-panel" data-owner="<%= @user.id %>">
 
   <div class = "row">
-    <p class = "navbar-text navbar-text btn btn-material-lime " id = "user-label" > <%= link_to @user.nickname.upcase, user_path(@user) %> <% if is_owner?(@user) %> (это вы) <% end %></p>
+    <p class = "navbar-text" id = "user-label" > <%= link_to @user.nickname.upcase, user_path(@user) %> <% if is_owner?(@user) %> (это вы) <% end %></p>
 
     <%= render partial: "relationships/form" %>
 
     <p class = "navbar-text btn btn-material-lime"> <%= @user.places.count %> мест на карте </p>
-    <p class = "navbar-text btn btn-material-green" data-load="followers" data-toggle="modal", data-target=".modal-info" > <%= @user.get_followers.count %>  подписчиков </p>
-    <p class = "navbar-text btn btn-material-green" data-load="subscriptions" data-toggle="modal", data-target=".modal-info" > <%= @user.get_subscriptions.count %> подписок </p>
+    <p class = "navbar-text btn btn-i" data-load="followers" data-toggle="modal", data-target=".modal-info" > <%= @user.get_followers.count %>  подписчиков </p>
+    <p class = "navbar-text btn btn-i" data-load="subscriptions" data-toggle="modal", data-target=".modal-info" > <%= @user.get_subscriptions.count %> подписок </p>
 
   <% if @user == current_user %>
-    <p class = "navbar-text btn btn-material-green" data-load="info" data-toggle="modal", data-target=".modal-info"> <%= @user.notifications.count %> оповещений
+    <p class = "navbar-text btn btn-i" data-load="info" data-toggle="modal", data-target=".modal-info"> <%= @user.notifications.count %> оповещений
     </p>
   <% end %>
 

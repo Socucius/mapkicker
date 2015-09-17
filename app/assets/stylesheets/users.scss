@@ -22,6 +22,23 @@
   a:active {
       color: black;
   }
+
+  .btn-i {
+    color: white;
+  }
+
+
+  ul {
+      list-style-type: none;
+  }
+
+  .new-item {
+    background-color: grey;
+    color: white;
+    padding: 5px;
+  }
+
+
 }
 
 #map {
@@ -29,7 +46,35 @@
 }
 
 #user-label {
-  background-color: #e8f5e9;
-  color: black;
-  
+/* unvisited link */
+  a:link {
+      color: white;
+  }
+
+  /* visited link */
+  a:visited {
+      color: white;
+  }
+
+  /* mouse over link */
+  a:hover {
+      color: white;
+  }
+
+  /* selected link */
+  a:active {
+      color: white;
+  }
+
+  .btn-i {
+    color: white;
+  }
+  color: white;
+  font-weight: 600;
+}
+
+#new-user-box {
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 20%;
 }

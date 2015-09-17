@@ -1,7 +1,7 @@
 <% unless @followers.empty? %>
   <% @followers.each do |f| %>
-    <%= f.nickname %>
+    <%= link_to f.nickname, user_path(f) %>
   <% end %>
 <% else %>
-  No followers
+  Нет подписчиков
 <% end %>

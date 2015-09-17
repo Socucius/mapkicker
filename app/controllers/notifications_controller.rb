@@ -7,4 +7,11 @@ class NotificationsController < ApplicationController
     end
   end
 
+  def read
+    notification = current_user.notifications.find(params[:notification_id])
+    notification.update_attributes(read: true)
+    notification.save
+    render nothing: true
+  end
+
 end

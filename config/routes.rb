@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   resources :user_sessions, only: [:new, :create, :destroy]
 
   resources :users, only: [:show, :new, :create] do 
-    resources :notifications, only: [:create, :destroy, :index]
+    resources :notifications, only: [:create, :destroy, :index] do
+      put 'read'
+    end
     get 'subscriptions', as: :subscriptions
     get 'followers', as: :followers
   end

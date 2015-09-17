@@ -1,6 +1,8 @@
 <% unless @notifications.empty? %>
   <% @notifications.each do |n| %>
-    <%= n.message %> [new]
+    <ul class="list-group">
+      <li class="list-group-item new-item" data-id = "<%= n.id %>"> <%= n.message %> </li>
+    </ul>
   <% end %>
 <% else %>
   No notifications

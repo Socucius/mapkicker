@@ -1,13 +1,15 @@
-<div class = "form-group">
-  <%= form_for @user do |f| %>
-    <%= f.label :nickname %>
-    <%= f.text_field :nickname %>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
-    <%= f.submit %>
-  <% end %>
+<div id = "new-user-box">
+    <div class = "form-group">
+      <%= form_for @user do |f| %>
+        <%= f.label :nickname %>
+        <%= f.text_field :nickname, class: "form-control"  %>
+        <%= f.label :email %>
+        <%= f.text_field :email, class: "form-control" %>
+        <%= f.label :password %>
+        <%= f.password_field :password, class: "form-control" %>
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, class: "form-control" %>
+        <%= f.submit "Создать аккаунт", class: "btn btn-default" %>
+      <% end %>
+    </div>
 </div>
