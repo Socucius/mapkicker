@@ -7,8 +7,10 @@
   float: left;
 }
 
-#fullpage {
-  margin-top: 25%;
+#fullpage { 
+  max-width: 1000px;
+  margin: auto;
+  margin-top: 10%;
 }
 
 .map-label {

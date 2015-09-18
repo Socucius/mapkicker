@@ -7,8 +7,8 @@ var map_name = "map";
 function init (ymaps) { 
 
   var map = new ymaps.Map(map_name, {
-    center: [55.75, 37.67],
-    zoom: 9
+    center: [53.89079, 27.5],
+    zoom: 11
   });
 
   var placemark, c_1, c_2, current_pos, result, users;

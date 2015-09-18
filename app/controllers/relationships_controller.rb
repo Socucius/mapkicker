@@ -5,7 +5,7 @@ class RelationshipsController < ApplicationController
     authorize(rel)
     rel.follower_id = current_user.id
     rel.save
-    redirect_to current_user
+    redirect_to user_path(rel.followed_id)
   end
 
   def destroy

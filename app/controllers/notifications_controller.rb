@@ -9,6 +9,7 @@ class NotificationsController < ApplicationController
 
   def read
     notification = current_user.notifications.find(params[:notification_id])
+    authorize(notification, :read?) #just in case
     notification.update_attributes(read: true)
     notification.save
     render nothing: true

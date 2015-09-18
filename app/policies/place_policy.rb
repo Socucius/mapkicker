@@ -13,11 +13,11 @@ class PlacePolicy < ApplicationPolicy
 
   def create?
     #just in case
-    @user == place.user
+    @place.owner?(@user)
   end
 
   def update?
-    @user == place.user
+    @place.owner?(@user)
   end
 
 

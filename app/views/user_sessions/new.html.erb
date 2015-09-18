@@ -1,3 +1,8 @@
+<% unless flash.empty? %>
+    <div class="alert alert-danger" role="alert">Неправильные логин или пароль</div>
+<% end %>
+
+
 <div id = "login-box">
   <div class = "form-group">
     <%= form_tag user_sessions_path, :method => :post do %>

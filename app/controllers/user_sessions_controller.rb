@@ -1,5 +1,4 @@
 class UserSessionsController < ApplicationController
-  before_action :redirect_if_authenticated
 
   def new
     @user = User.new
@@ -9,6 +8,7 @@ class UserSessionsController < ApplicationController
     if @user = login(params[:email], params[:password])
       redirect_to @user
     else
+      flash.now[:error] = "Неправильные логин и пароль"
       render :new
     end
   end

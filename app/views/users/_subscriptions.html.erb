@@ -1,6 +1,6 @@
 <% unless @subscriptions.empty? %>
   <% @subscriptions.each do |s| %>
-    <%= link_to s.nickname, user_path(s) %>
+    <%= link_to s.nickname, user_path(s) %> <br>
   <% end %>
 <% else %>
   Нет подписок
