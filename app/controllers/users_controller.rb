@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
   before_action :redirect_if_authenticated, except: [:show, :followers, :subscriptions]
   before_action :initialize_user, only: [:show, :followers, :subscriptions]
+  before_action :init_js_variables, only: [:show]
 
   def show
     @place = Place.new
-    init_js_variables
   end
 
   def new
