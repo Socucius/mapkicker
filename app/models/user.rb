@@ -5,8 +5,13 @@ class User < ActiveRecord::Base
   has_many :places, dependent: :destroy
   has_many :notifications, dependent: :destroy
 
-  has_many :subscriptions, class_name: "Relationship", foreign_key: :follower_id
-  has_many :followers, class_name: "Relationship", foreign_key: :followed_id
+  has_many :relationships, foreign_key: :follower_id, dependent: :destroy
+  has_many :relationships_reverse, foreign_key: :followed_id, 
+                                                 class_name: "Relationship",
+                                                 dependent: :destroy
+
+  has_many :subscriptions, through: :relationships, source: :followed
+  has_many :followers, through: :relationships_reverse, source: :follower
 
   validates :password, length: { minimum: 3 }
   validates :password, confirmation: true, if: -> { new_record? }
@@ -15,21 +20,16 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
 
 
+
+#Потом перепишу контроллеры, пока так
   def get_followers
-    followers = []
-    self.followers.each do |f|
-      followers << f.follower_id
-    end
-    User.find(followers)
+    self.followers
   end
 
   def get_subscriptions
-    subscriptions = []
-    self.subscriptions.each do |s|
-      subscriptions << s.followed_id
-    end
-    User.find(subscriptions)
+    self.subscriptions
   end
+##
 
   def is_followed_by?(user)
     Relationship.find_by(follower_id: user.id, followed_id: self.id)
