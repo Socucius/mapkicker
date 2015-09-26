@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150910181450) do
+ActiveRecord::Schema.define(version: 20150926161804) do
 
   create_table "notifications", force: :cascade do |t|
     t.integer  "user_id"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20150910181450) do
     t.string   "coordinates"
     t.integer  "user_id"
     t.text     "content"
+    t.string   "image"
   end
 
   add_index "places", ["user_id"], name: "index_places_on_user_id"

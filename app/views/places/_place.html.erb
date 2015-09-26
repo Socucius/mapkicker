@@ -1,5 +1,6 @@
 <div class = "place-content">
   <h3> <%= @place.title %> </h3>
+  <%= image_tag @place.image.url %>
   <%= @place.content.html_safe %>
   <% if @place.user == current_user %>
     <%= link_to "Удалить", place_path(@place), method: :delete, class: "btn btn-default" %>

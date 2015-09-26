@@ -58,13 +58,14 @@ var get_place_data = function(link_id){
 //Открытие модального окна с содержимым
   map.geoObjects.events.add('click', function(e) {
     var mark = e.get('target');
+    $('#place-modal').modal();
+    $('#place-content').html("Loading...");
     $.ajax({
       url: "/places/" + mark.link_id,
       type: "GET",
       dataType: 'html',
       success: function(data){
         $('#place-content').html(data);
-        $('#place-modal').modal();
       }
       });
   });

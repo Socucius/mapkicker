@@ -1,9 +1,10 @@
 class Place < ActiveRecord::Base
   after_create :send_notifications
+  mount_uploader :image, PlaceImageUploader
 
   belongs_to :user
 
-  validates :content, :title, :coordinates, presence: true
+  validates :image, :content, :title, :coordinates, presence: true
 
   def owner?(user)
     self.user == user  

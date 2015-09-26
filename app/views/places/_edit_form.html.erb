@@ -1,7 +1,8 @@
 <div class = "form-group">
   <%= form_for @place do |f| %>
     Title:
-    <%= f.text_field :title, class: "form-control" %>
+    <%= f.text_field :title, class: "form-control" %> <br>
+    <%= f.file_field :image %> <br> 
     <%= f.hidden_field :coordinates, class: "form-control coordinates" %>
     Content: 
     <%= f.text_area :content, :class => "edit-place", :rows => 40, :cols => 120  %>
