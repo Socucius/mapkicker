@@ -30,6 +30,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'redactor-rails'
 gem 'pundit'
+gem 'carrierwave-dropbox'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

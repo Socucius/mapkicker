@@ -19,3 +19,4 @@
 /config/secrets.yml
 /public/uploads
 /public/system
+/config/initializers/carrierwave.rb

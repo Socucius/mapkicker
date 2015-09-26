@@ -12,10 +12,9 @@ class Place < ActiveRecord::Base
 private
 
   def send_notifications
-    followers = self.user.get_followers
-    followers.each do |follower|
+    self.user.get_followers.each do |follower|
       follower.notifications.create(
-        message: "#{self.user.nickname} added new place"
+        message: "#{self.user.nickname} added #{self.title}!"
         )
     end
   end
