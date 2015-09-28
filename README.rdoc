@@ -6,6 +6,9 @@ You can:
 
 * Follow other users
 
+* Receive notificaions
+
+* Profile examle: http://mapkicker.herokuapp.com/users/1
 
 
 
