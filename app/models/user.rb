@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :notifications, dependent: :destroy
 
   has_many :relationships, foreign_key: :follower_id, dependent: :destroy
-  has_many :relationships_reverse, foreign_key: :followed_id, 
+  has_many :relationships_reverse, foreign_key: :followed_id,
                                                  class_name: "Relationship",
                                                  dependent: :destroy
 
@@ -22,11 +22,11 @@ class User < ActiveRecord::Base
 
 
 #Потом перепишу контроллеры, пока так
-  def get_followers
+  def followers
     self.followers
   end
 
-  def get_subscriptions
+  def subscriptions
     self.subscriptions
   end
 ##

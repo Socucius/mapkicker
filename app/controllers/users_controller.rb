@@ -22,14 +22,14 @@ class UsersController < ApplicationController
   end
 
   def followers
-    @followers = @user.get_followers
+    @followers = @user.followers
     respond_to do |format|
       format.js { render partial: 'followers', layout: false }
     end
   end
 
   def subscriptions
-    @subscriptions = @user.get_subscriptions
+    @subscriptions = @user.subscriptions
     respond_to do |format|
       format.js { render partial: 'subscriptions', layout: false }
     end
@@ -45,7 +45,7 @@ class UsersController < ApplicationController
     gon.places = @user.places.as_json(only: [:id,:title, :coordinates])
     users_hash = { user: @user.id, current_user: current_user ? current_user.id : -1 }
     gon.users = users_hash.to_json
-  end 
+  end
 
   def user_params
     params.require(:user).permit(:email, :nickname, :password, :password_confirmation)

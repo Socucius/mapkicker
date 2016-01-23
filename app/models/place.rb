@@ -7,13 +7,13 @@ class Place < ActiveRecord::Base
   validates :image, :content, :title, :coordinates, presence: true
 
   def owner?(user)
-    self.user == user  
+    self.user == user
   end
 
 private
 
   def send_notifications
-    self.user.get_followers.each do |follower|
+    self.user.followers.each do |follower|
       follower.notifications.create(
         message: "#{self.user.nickname} added #{self.title}!"
         )
