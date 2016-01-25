@@ -1,15 +1,14 @@
 class RelationshipsController < ApplicationController
 
   def create
-    rel = Relationship.new(relationship_params)
+    rel = RelationshipService.new(current_user, relationship_params[:followed_id])
     authorize(rel)
-    rel.follower_id = current_user.id
     rel.save
     redirect_to user_path(rel.followed_id)
   end
 
   def destroy
-    
+
   end
 
   private
